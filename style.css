@@ -2,7 +2,7 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #dddddd;
 }
 
 /* --- ساختار گرید --- */
@@ -36,13 +36,13 @@ body {
 
 .header {
     grid-area: header;
-    background-color: #2c3e50;
+    background-color: #1f1f1f;
     text-align: center;
 }
 
 .nav {
     grid-area: nav;
-    background-color: #34495e;
+    background-color: #b6b7b7;
 }
 
 .nav a {
@@ -53,13 +53,13 @@ body {
 }
 
 .nav a:hover {
-    color: #3498db;
+    color: #939ba1;
 }
 
 .article {
     grid-area: article;
     background-color: #ecf0f1;
-    color: #333;
+    color: #727272;
 }
 
 .aside {
@@ -68,6 +68,7 @@ body {
 }
 
 .footer {
+    box-shadow: 3px 3px 3px rgb(218, 212, 212);
     grid-area: footer;
     background-color: #2c3e50;
     text-align: center;
