@@ -10,7 +10,7 @@ body {
     display: grid;
     grid-template-areas:
         'header header header'
-        'nav    article  aside'
+        'aside    article  article'
         'footer footer footer';
     grid-template-columns: 1fr 3fr 1fr;
     /* ستون منو | محتوای اصلی | ستون کناری */
