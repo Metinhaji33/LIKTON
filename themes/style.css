@@ -1,0 +1,188 @@
+/* --- استایل‌های کلی --- */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #e0e0e0;
+}
+
+/* --- ساختار گرید (بدون تغییر) --- */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'aside    article  article'
+        'footer footer footer';
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* --- استایل هر بخش --- */
+.header,
+.article,
+.aside,
+.footer {
+    box-shadow: 0 0 15px rgba(0, 200, 83, 0.1);
+    /* تغییر: درخشش با رنگ سبز جدید */
+    padding: 20px;
+    border-radius: 5px;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    color: white;
+    background-color: #111111;
+    border-bottom: 2px solid;
+    /* تغییر: گرادینت با رنگ سبز جدید */
+    border-image-source: linear-gradient(to right, #111, #00c853, #111);
+    border-image-slice: 1;
+}
+
+.article {
+    grid-area: article;
+    background-color: #202425;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: #1d1f20;
+}
+
+.article a {
+    color: #00c853;
+    /* تغییر: رنگ سبز جدید */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #111111;
+    text-align: center;
+    border-top: 2px solid;
+    /* تغییر: گرادینت با رنگ سبز جدید */
+    border-image-source: linear-gradient(to right, #111, #00c853, #111);
+    border-image-slice: 1;
+}
+
+.footer .fab {
+    padding: 5px;
+    border-radius: 50%;
+    color: #818181;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer .fab:hover {
+    color: #00c853;
+    /* تغییر: رنگ سبز جدید */
+    transform: scale(1.2);
+}
+
+/* --- استایل برای نمایش بهتر در موبایل (بدون تغییر) --- */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            'header' 'article' 'aside' 'footer';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
+}
+
+/* --- کدهای منوی کشویی --- */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: -250px;
+    background-color: #111;
+    padding-top: 60px;
+    transition: right 0.4s ease-in-out, border-color 0.4s ease-in-out;
+    /* تغییر: حاشیه از اینجا حذف شد تا در حالت بسته دیده نشود */
+}
+
+.side-nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #818181;
+    display: block;
+    transition: color 0.3s;
+}
+
+.side-nav a:hover {
+    color: #00c853;
+    /* تغییر: رنگ سبز جدید */
+}
+
+.side-nav.open {
+    right: 0;
+    /* تغییر: حاشیه فقط در حالت باز نمایش داده می‌شود */
+    border-left: 2px solid #00c853;
+    /* تغییر: رنگ سبز جدید */
+}
+
+.hamburger {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    height: 24px;
+    z-index: 1001;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 3px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger.active .line {
+    background-color: #e0e0e0;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
