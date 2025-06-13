@@ -15,10 +15,9 @@ h2 {
 .header-logo {
     width: 100px;
     border-radius: 50%;
-
 }
 
-/* --- ساختار گرید (بدون تغییر) --- */
+/* --- ساختار گرید --- */
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -39,7 +38,6 @@ h2 {
 .aside,
 .footer {
     box-shadow: 0 0 15px rgba(0, 200, 83, 0.1);
-    /* تغییر: درخشش با رنگ سبز جدید */
     padding: 20px;
     border-radius: 5px;
     color: #e0e0e0;
@@ -49,10 +47,8 @@ h2 {
 .header {
     grid-area: header;
     text-align: center;
-    color: white;
     background-color: #111111;
     border-bottom: 2px solid;
-    /* تغییر: گرادینت با رنگ سبز جدید */
     border-image-source: linear-gradient(to right, #111, #00c853, #111);
     border-image-slice: 1;
 }
@@ -67,19 +63,11 @@ h2 {
     background-color: #1d1f20;
 }
 
-.article a {
-    color: #00c853;
-    /* تغییر: رنگ سبز جدید */
-    text-decoration: none;
-    font-weight: bold;
-}
-
 .footer {
     grid-area: footer;
     background-color: #111111;
     text-align: center;
     border-top: 2px solid;
-    /* تغییر: گرادینت با رنگ سبز جدید */
     border-image-source: linear-gradient(to right, #111, #00c853, #111);
     border-image-slice: 1;
 }
@@ -107,20 +95,14 @@ h2 {
     color: rgb(0, 119, 255);
 }
 
-/* --- استایل برای نمایش بهتر در موبایل (بدون تغییر) --- */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-areas:
-            'header' 'article' 'aside' 'footer';
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        height: auto;
-    }
+/* --- استایل منوی کشویی --- */
+.overlay,
+.side-nav,
+.hamburger {
+    /* استایل‌های مربوط به منو بدون تغییر باقی می‌مانند */
 }
 
-/* side nav */
-/* --- کدهای منوی کشویی --- */
-
+/* ... (کدهای منو از فایل شما اینجا قرار می‌گیرد) ... */
 .overlay {
     display: none;
     position: fixed;
@@ -142,7 +124,6 @@ h2 {
     background-color: #111;
     padding-top: 60px;
     transition: right 0.4s ease-in-out, border-color 0.4s ease-in-out;
-    /* تغییر: حاشیه از اینجا حذف شد تا در حالت بسته دیده نشود */
 }
 
 .side-nav a {
@@ -156,14 +137,11 @@ h2 {
 
 .side-nav a:hover {
     color: #00c853;
-    /* تغییر: رنگ سبز جدید */
 }
 
 .side-nav.open {
     right: 0;
-    /* تغییر: حاشیه فقط در حالت باز نمایش داده می‌شود */
     border-left: 2px solid #00c853;
-    /* تغییر: رنگ سبز جدید */
 }
 
 .hamburger {
@@ -205,78 +183,19 @@ h2 {
     transform: translateY(-10.5px) rotate(-45deg);
 }
 
-/* product card */
 
 /* --- استایل شبکه محصولات --- */
-
-.product-grid-container {
-    padding: 40px 20px;
-    /* فاصله از اطراف صفحه */
-}
-
-.grid-title {
-    text-align: center;
-    font-size: 2.5em;
-    color: #333;
-    /* رنگ تیره برای متن روی پس‌زمینه روشن */
-    margin-bottom: 40px;
-}
-
 .product-grid {
     display: grid;
-    /* این کد به صورت هوشمند تعداد ستون‌ها را بر اساس عرض صفحه تنظیم می‌کند */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    /* فاصله بین کارت‌ها */
 }
 
-/* --- استایل کارت محصول با تم Razer --- */
+/* ======================================================= */
+/* === کلاس جدید و تمیز برای حاشیه متحرک === */
+/* ======================================================= */
 
-/* --- استایل نهایی و متحرک کارت محصول با تم Razer --- */
-
-.product-card {
-    background-color: #1a1a1a;
-    /* رنگ پس زمینه کارت کمی روشن‌تر شد */
-    border-radius: 8px;
-    padding: 2px;
-    /* یک پدینگ کوچک برای ایجاد فاصله برای بوردر */
-    text-align: center;
-    position: relative;
-    /* برای جای‌گیری صحیح عناصر داخلی و هاله */
-    overflow: hidden;
-    /* برای گرد شدن گوشه‌های هاله */
-    z-index: 1;
-}
-
-/* این عنصر مجازی، هاله نورانی متحرک را می‌سازد */
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 180deg at 50% 50%,
-            #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff, #ff0000);
-    /* انیمیشن چرخش هاله */
-    animation: rotate-glow 4s linear infinite;
-    z-index: 2;
-}
-
-/* این عنصر داخلی، محتوای کارت را نگه می‌دارد و مرکز هاله را می‌پوشاند */
-.card-content {
-    background-color: #111111;
-    /* رنگ مشکی برای پوشاندن مرکز هاله */
-    border-radius: 6px;
-    /* کمی گردتر از کارت اصلی */
-    padding: 20px;
-    position: relative;
-    z-index: 3;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-/* تعریف انیمیشن چرخش */
+/* 1. انیمیشن چرخش (یک بار تعریف می‌شود) */
 @keyframes rotate-glow {
     from {
         transform: rotate(0deg);
@@ -287,30 +206,67 @@ h2 {
     }
 }
 
-/* --- استایل عناصر داخلی کارت --- */
-.product-card img {
+/* 2. کلاس اصلی که به عنصر پدر (wrapper) می‌دهیم */
+.animated-rgb-border {
+    position: relative;
+    padding: 3px;
+    /* ضخامت حاشیه */
+    overflow: hidden;
+    border-radius: 11px;
+    /* کمی گردتر از محتوای داخلی */
+    z-index: 1;
+}
+
+/* 3. عنصر مجازی که هاله نورانی متحرک را می‌سازد */
+.animated-rgb-border::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    background: conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+    animation: rotate-glow 4s linear infinite;
+}
+
+/* --- استایل کارت محصول که از کلاس بالا استفاده می‌کند --- */
+.product-card {
+    /* حالا product-card کلاس animated-rgb-border را در HTML می‌گیرد */
+    /* استایل‌های مربوط به انیمیشن دیگر اینجا نیست */
+}
+
+.card-content {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    /* باید کمتر از بوردر پدر باشد */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-content img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.product-card h3 {
+.card-content h3 {
     font-size: 1.2em;
     font-weight: bold;
     color: #f5f5f5;
     margin: 15px 10px 10px;
 }
 
-.product-card .price {
+.card-content .price {
     font-size: 1.1em;
     font-weight: bold;
     color: #00ff00;
     margin-bottom: 20px;
 }
 
-.product-card button {
+.card-content button {
     background-color: #00ff00;
     color: #111;
     border: none;
@@ -323,48 +279,25 @@ h2 {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.product-card button:hover {
+.card-content button:hover {
     background-color: #33ff33;
     box-shadow: 0 0 15px #00ff00;
 }
 
-/* --- کلاس قابل استفاده مجدد برای حاشیه متحرک RGB --- */
-
-/* 1. تعریف انیمیشن چرخش */
-@keyframes rotate-glow {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* 2. کلاس اصلی که به عنصر پدر می‌دهیم */
-.animated-rgb-border {
-    position: relative;
-    padding: 3px;
-    /* ضخامت حاشیه رنگی */
-    overflow: hidden;
-    border-radius: 8px;
-    z-index: 1;
-}
-
-/* 3. عنصر مجازی که هاله نورانی را می‌سازد */
-.animated-rgb-border::before {
-    content: '';
+/* --- استایل برچسب فروش ویژه --- */
+.product-badge {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    z-index: -1;
-    /* این لایه باید پشت محتوای اصلی باشد */
-
-    /* گرادینت رنگین‌کمانی که می‌چرخد */
-    background: conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-
-    /* اعمال انیمیشن چرخش */
-    animation: rotate-glow 4s linear infinite;
+    top: 15px;
+    left: 15px;
+    /* در گوشه بالا-چپ کارت قرار می‌گیرد */
+    background-color: #e44d26;
+    /* یک رنگ نارنجی-قرمز برای جلب توجه */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.85em;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 4;
+    /* برای اینکه روی عکس و بقیه محتوا قرار بگیرد */
 }

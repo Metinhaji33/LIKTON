@@ -19,14 +19,32 @@ overlay.addEventListener('click', toggleMenu);
 // cards
 
 // پیدا کردن ظرف اصلی گرید در HTML
+// در فایل themes/script.js
+
+// در فایل themes/script.js
+
 const productGrid = document.querySelector('.product-grid');
 
-// حلقه زدن روی لیست محصولات و ساختن کارت برای هر کدام
 products.forEach(product => {
-    // --- این بخش را اصلاح کن ---
+    // --- بخش ۱: تعیین کلاس‌های کارت ---
+    let cardClasses = 'product-card';
+    if (product.isFeatured) {
+        cardClasses += ' animated-rgb-border';
+    }
+
+    // --- بخش ۲: ساختن HTML برچسب (کد جدید) ---
+    let badgeHTML = ''; // یک متغیر خالی برای کد HTML برچسب
+    // اگر محصول ویژگی badgeText را داشت...
+    if (product.badgeText) {
+        // ...کد HTML برچسب را با متن مربوطه بساز
+        badgeHTML = `<div class="product-badge">${product.badgeText}</div>`;
+    }
+
+    // --- بخش ۳: ساختن کارت نهایی ---
     const cardHTML = `
-        <div class="product-card">
+        <div class="${cardClasses}">
             <div class="card-content">
+                ${badgeHTML} <!-- کد برچسب اینجا اضافه می‌شود -->
                 <img src="${product.imageUrl}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p class="price">${product.price}</p>
@@ -35,6 +53,5 @@ products.forEach(product => {
         </div>
     `;
 
-    // اضافه کردن کارت ساخته شده به ظرف اصلی در HTML
     productGrid.innerHTML += cardHTML;
 });
