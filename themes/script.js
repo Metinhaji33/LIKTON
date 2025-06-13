@@ -23,13 +23,15 @@ const productGrid = document.querySelector('.product-grid');
 
 // حلقه زدن روی لیست محصولات و ساختن کارت برای هر کدام
 products.forEach(product => {
-    // ساختن یک کارت محصول جدید با استفاده از داده‌ها
+    // --- این بخش را اصلاح کن ---
     const cardHTML = `
         <div class="product-card">
-            <img src="${product.imageUrl}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p class="price">${product.price}</p>
-            <button>افزودن به سبد</button>
+            <div class="card-content">
+                <img src="${product.imageUrl}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p class="price">${product.price}</p>
+                <button>افزودن به سبد</button>
+            </div>
         </div>
     `;
 

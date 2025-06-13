@@ -232,79 +232,87 @@ h2 {
 
 /* --- استایل کارت محصول با تم Razer --- */
 
+/* --- استایل نهایی و متحرک کارت محصول با تم Razer --- */
+
 .product-card {
-    background-color: #111111;
-    /* پس‌زمینه تقریباً سیاه */
-    border: 1px solid #333;
-    /* یک حاشیه بسیار ظریف خاکستری */
-    border-radius: 5px;
-    /* گوشه‌های تیز و مدرن */
-    padding: 20px;
+    background-color: #1a1a1a;
+    /* رنگ پس زمینه کارت کمی روشن‌تر شد */
+    border-radius: 8px;
+    padding: 2px;
+    /* یک پدینگ کوچک برای ایجاد فاصله برای بوردر */
     text-align: center;
+    position: relative;
+    /* برای جای‌گیری صحیح عناصر داخلی و هاله */
     overflow: hidden;
-    /* برای اینکه افکت‌ها از کارت بیرون نزنند */
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    /* برای گرد شدن گوشه‌های هاله */
+    z-index: 1;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    border-color: #00ff00;
-    /* حاشیه کارت موقع هاور سبز می‌شود */
-    /* افکت درخشش سبز رنگ دور کارت موقع هاور */
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+/* این عنصر مجازی، هاله نورانی متحرک را می‌سازد */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 180deg at 50% 50%,
+            #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff, #ff0000);
+    /* انیمیشن چرخش هاله */
+    animation: rotate-glow 4s linear infinite;
+    z-index: 2;
 }
 
-/* استایل عکس محصول */
+/* این عنصر داخلی، محتوای کارت را نگه می‌دارد و مرکز هاله را می‌پوشاند */
+.card-content {
+    background-color: #111111;
+    /* رنگ مشکی برای پوشاندن مرکز هاله */
+    border-radius: 6px;
+    /* کمی گردتر از کارت اصلی */
+    padding: 20px;
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* تعریف انیمیشن چرخش */
+@keyframes rotate-glow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- استایل عناصر داخلی کارت --- */
 .product-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
-
-    /* --- کد اصلاح شده برای درخشش --- */
-    filter:
-        drop-shadow(0 0 7px rgba(0, 255, 0, 0.7))
-        /* درخشش سبز */
-        drop-shadow(0 0 15px rgba(0, 0, 255, 0.5))
-        /* درخشش آبی */
-        drop-shadow(0 0 25px rgba(255, 0, 0, 0.3));
-    /* درخشش قرمز */
 }
 
-/* استایل نام محصول */
 .product-card h3 {
     font-size: 1.2em;
     font-weight: bold;
     color: #f5f5f5;
-    /* رنگ متن سفید برای خوانایی */
-    margin: 15px 0 10px 0;
-    transition: text-shadow 0.3s;
+    margin: 15px 10px 10px;
 }
 
-.product-card:hover h3 {
-    /* افکت درخشش برای متن موقع هاور روی کل کارت */
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
-}
-
-
-/* استایل قیمت محصول */
 .product-card .price {
     font-size: 1.1em;
     font-weight: bold;
     color: #00ff00;
-    /* قیمت با رنگ سبز ریزر */
     margin-bottom: 20px;
-    /* درخشش دائمی برای قیمت */
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
-/* استایل دکمه افزودن به سبد */
 .product-card button {
     background-color: #00ff00;
-    /* پس‌زمینه سبز ریزر */
     color: #111;
-    /* متن مشکی برای تضاد و خوانایی */
     border: none;
     padding: 12px 25px;
     border-radius: 5px;
@@ -317,7 +325,46 @@ h2 {
 
 .product-card button:hover {
     background-color: #33ff33;
-    /* کمی روشن‌تر موقع هاور */
     box-shadow: 0 0 15px #00ff00;
-    /* افکت درخشش برای دکمه */
+}
+
+/* --- کلاس قابل استفاده مجدد برای حاشیه متحرک RGB --- */
+
+/* 1. تعریف انیمیشن چرخش */
+@keyframes rotate-glow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 2. کلاس اصلی که به عنصر پدر می‌دهیم */
+.animated-rgb-border {
+    position: relative;
+    padding: 3px;
+    /* ضخامت حاشیه رنگی */
+    overflow: hidden;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* 3. عنصر مجازی که هاله نورانی را می‌سازد */
+.animated-rgb-border::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    /* این لایه باید پشت محتوای اصلی باشد */
+
+    /* گرادینت رنگین‌کمانی که می‌چرخد */
+    background: conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+
+    /* اعمال انیمیشن چرخش */
+    animation: rotate-glow 4s linear infinite;
 }
