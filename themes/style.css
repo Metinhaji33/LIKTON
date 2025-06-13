@@ -12,6 +12,12 @@ h2 {
     color: #e0e0e0;
 }
 
+.header-logo {
+    width: 100px;
+    border-radius: 50%;
+
+}
+
 /* --- ساختار گرید (بدون تغییر) --- */
 .grid-container {
     display: grid;
@@ -85,10 +91,20 @@ h2 {
     transition: color 0.3s, transform 0.3s;
 }
 
-.footer .fab:hover {
-    color: #00c853;
-    /* تغییر: رنگ سبز جدید */
+.fab:hover {
     transform: scale(1.2);
+}
+
+.fa-discord:hover {
+    color: blue;
+}
+
+.fa-youtube:hover {
+    color: rgb(205, 0, 0);
+}
+
+.fa-twitter:hover {
+    color: rgb(0, 119, 255);
 }
 
 /* --- استایل برای نمایش بهتر در موبایل (بدون تغییر) --- */
@@ -102,7 +118,9 @@ h2 {
     }
 }
 
+/* side nav */
 /* --- کدهای منوی کشویی --- */
+
 .overlay {
     display: none;
     position: fixed;
@@ -166,7 +184,7 @@ h2 {
 .hamburger .line {
     width: 100%;
     height: 3px;
-    background-color: #e0e0e0;
+    background-color: #ffffff;
     border-radius: 3px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -185,4 +203,121 @@ h2 {
 
 .hamburger.active .line:nth-child(3) {
     transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* product card */
+
+/* --- استایل شبکه محصولات --- */
+
+.product-grid-container {
+    padding: 40px 20px;
+    /* فاصله از اطراف صفحه */
+}
+
+.grid-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    /* رنگ تیره برای متن روی پس‌زمینه روشن */
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    /* این کد به صورت هوشمند تعداد ستون‌ها را بر اساس عرض صفحه تنظیم می‌کند */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    /* فاصله بین کارت‌ها */
+}
+
+/* --- استایل کارت محصول با تم Razer --- */
+
+.product-card {
+    background-color: #111111;
+    /* پس‌زمینه تقریباً سیاه */
+    border: 1px solid #333;
+    /* یک حاشیه بسیار ظریف خاکستری */
+    border-radius: 5px;
+    /* گوشه‌های تیز و مدرن */
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+    /* برای اینکه افکت‌ها از کارت بیرون نزنند */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff00;
+    /* حاشیه کارت موقع هاور سبز می‌شود */
+    /* افکت درخشش سبز رنگ دور کارت موقع هاور */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+/* استایل عکس محصول */
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+    /* --- کد اصلاح شده برای درخشش --- */
+    filter:
+        drop-shadow(0 0 7px rgba(0, 255, 0, 0.7))
+        /* درخشش سبز */
+        drop-shadow(0 0 15px rgba(0, 0, 255, 0.5))
+        /* درخشش آبی */
+        drop-shadow(0 0 25px rgba(255, 0, 0, 0.3));
+    /* درخشش قرمز */
+}
+
+/* استایل نام محصول */
+.product-card h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f5f5f5;
+    /* رنگ متن سفید برای خوانایی */
+    margin: 15px 0 10px 0;
+    transition: text-shadow 0.3s;
+}
+
+.product-card:hover h3 {
+    /* افکت درخشش برای متن موقع هاور روی کل کارت */
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+}
+
+
+/* استایل قیمت محصول */
+.product-card .price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #00ff00;
+    /* قیمت با رنگ سبز ریزر */
+    margin-bottom: 20px;
+    /* درخشش دائمی برای قیمت */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* استایل دکمه افزودن به سبد */
+.product-card button {
+    background-color: #00ff00;
+    /* پس‌زمینه سبز ریزر */
+    color: #111;
+    /* متن مشکی برای تضاد و خوانایی */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #33ff33;
+    /* کمی روشن‌تر موقع هاور */
+    box-shadow: 0 0 15px #00ff00;
+    /* افکت درخشش برای دکمه */
 }
