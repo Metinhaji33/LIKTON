@@ -8,7 +8,8 @@ const products = [
         // isFeatured: true,  برای بررسی حاشیه مخصوص است 
         // true: حاشیه مخصوص داشته باشد 
         badgeText: 'تخفیف ۹۰٪',
-        pageLink: '/product/rgb-mouse'
+        pageLink: '/product/rgb-mouse',
+        pageLink: '/product/rgb-mouse/index.html'
     },
     {
         name: 'کیبورد مکانیکال TKL',
