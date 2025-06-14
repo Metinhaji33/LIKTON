@@ -302,9 +302,18 @@ h2 {
     /* برای اینکه روی عکس و بقیه محتوا قرار بگیرد */
 }
 
-@media (max-width: 768px; ) {
+@media (max-width: 768px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header header header'
+            'article  article article'
+            'aside aside aside'
+            'footer footer footer';
     }
 }
 
