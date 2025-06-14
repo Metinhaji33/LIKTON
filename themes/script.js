@@ -57,3 +57,39 @@ products.forEach(product => {
 
     productGrid.innerHTML += cardHTML;
 });
+
+
+// id 
+window.onload = function () {
+    // مرحله ۱: دریافت پارامتر id از URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // مرحله ۲: پیدا کردن محصول در آرایه محصولات
+    // با استفاده از `==` به جای `===` چون id از URL به صورت رشته است
+    const product = products.find(p => p.id == productId);
+
+    // مرحله ۳: نمایش اطلاعات در صفحه
+    if (product) {
+        // المنت‌های صفحه را پیدا می‌کنیم
+        const productNameEl = document.getElementById('product-name');
+        const productImageEl = document.getElementById('product-image');
+        const productDescriptionEl = document.getElementById('product-description');
+        const productPriceEl = document.getElementById('product-price');
+
+        // اطلاعات محصول را در المنت‌ها قرار می‌دهیم
+        productNameEl.textContent = product.name;
+        productImageEl.src = product.image;
+        productImageEl.alt = product.name;
+        productDescriptionEl.textContent = product.description;
+        productPriceEl.textContent = product.price + ' تومان';
+
+        // عنوان صفحه را هم می‌توانیم تغییر دهیم
+        document.title = 'LIKTON - ' + product.name;
+
+    } else {
+        // اگر محصولی با آن id پیدا نشد، یک پیغام خطا نمایش بده
+        const articleEl = document.querySelector('.article');
+        articleEl.innerHTML = '<h1>محصول مورد نظر یافت نشد!</h1>';
+    }
+};
