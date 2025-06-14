@@ -3,12 +3,12 @@ const products = [
     {
         name: 'موس گیمینگ RGB Pro',
         price: '۱,۲۰۰,۰۰۰ تومان',
-        imageUrl: 'images/mouse.png',
+        imageUrl: '/images/mouse.png',
         isFeatured: true,
         // isFeatured: true,  برای بررسی حاشیه مخصوص است 
         // true: حاشیه مخصوص داشته باشد 
         badgeText: 'تخفیف ۹۰٪',
-        pageLink: 'product/rgb-mouse/index.html'
+        pageLink: '/product/rgb-mouse/index.html'
     },
     {
         name: 'کیبورد مکانیکال TKL',
