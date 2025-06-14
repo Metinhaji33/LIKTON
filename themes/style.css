@@ -266,20 +266,30 @@ h2 {
     margin-bottom: 20px;
 }
 
-.card-content button {
+.card-content-button {
     background-color: #00ff00;
     color: #111;
     border: none;
-    padding: 12px 25px;
     border-radius: 5px;
     cursor: pointer;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 1em;
     transition: background-color 0.3s, box-shadow 0.3s;
+
+    /* --- تغییرات جدید برای سایز و موقعیت --- */
+
+    /* ۱. برای کوچک‌تر کردن دکمه، پدینگ و سایز فونت را کمی کم می‌کنیم */
+    padding: 8px 16px;
+    font-size: 0.9em;
+
+    /* ۲. برای بردن دکمه به سمت راست */
+    width: fit-content;
+    /* عرض دکمه را به اندازه محتوایش محدود می‌کنیم */
+    margin-left: auto;
+    /* حاشیه سمت چپ را اتوماتیک قرار می‌دهیم تا به راست هل داده شود */
 }
 
-.card-content button:hover {
+.card-content-button:hover {
     background-color: #33ff33;
     box-shadow: 0 0 15px #00ff00;
 }

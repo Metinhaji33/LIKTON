@@ -8,23 +8,25 @@ const products = [
         // isFeatured: true,  برای بررسی حاشیه مخصوص است 
         // true: حاشیه مخصوص داشته باشد 
         badgeText: 'تخفیف ۹۰٪',
-        pageLink: '/product/rgb-mouse',
-        pageLink: '/product/rgb-mouse/index.html'
+        id: 1
     },
     {
         name: 'کیبورد مکانیکال TKL',
         price: '۲,۵۰۰,۰۰۰ تومان',
-        imageUrl: '/images/keyboard.png'
+        imageUrl: '/images/keyboard.png',
+        id: 2
     },
     {
         name: 'هدست صدای فراگیر 7.1',
         price: '۳,۱۰۰,۰۰۰ تومان',
-        imageUrl: '/images/headphone.png'
+        imageUrl: '/images/headphone.png',
+        id: 3
     },
     {
         name: 'مانیتور گیمینگ 144Hz',
         price: '۸,۰۰۰,۰۰۰ تومان',
-        imageUrl: '/images/monitor.png'
+        imageUrl: '/images/monitor.png',
+        id: 4
     },
     // {
     //     name: 'gg',

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- توجه: تگ title توسط جاوااسکریپت به صورت داینامیک تغییر خواهد کرد -->
+    <title>LIKTON - محصول</title>
+
+    <!-- لینک‌دهی‌ها باید مثل قبل مطلق باشند -->
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/themes/style.css">
+
+    <!-- مهم: فایل دیتا باید قبل از فایل اسکریپت اصلی لود شود -->
+    <script src="/themes/data.js" defer></script>
+    <script src="/themes/script.js" defer></script>
+</head>
+
+<!-- اضافه کردن کلاس برای تمام-عرض شدن صفحه -->
+
+<body class="single-product-page">
+
+    <!-- می‌توانید کدهای مشترک مثل منوی همبرگری را اینجا هم قرار دهید -->
+    <nav id="side-menu" class="side-nav">
+        <a href="#">خانه</a>
+        <a href="#">فروشگاه</a>
+        <a href="#">اخبار</a>
+        <a href="#">تماس با ما</a>
+    </nav>
+    <div id="overlay" class="overlay"></div>
+    <button id="hamburger-btn" class="hamburger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+
+    <div class="grid-container">
+        <!-- هدر و فوتر مثل قبل -->
+        <header class="header">...</header>
+
+        <article class="article">
+            <!-- این بخش به صورت داینامیک توسط جاوااسکریپت پر خواهد شد -->
+            <!-- ما برای هر بخش یک id منحصر به فرد قرار داده‌ایم -->
+            <h1 id="product-name">در حال بارگذاری...</h1>
+            <img id="product-image" src="" alt="در حال بارگذاری تصویر" style="max-width: 400px; margin: 20px 0;">
+            <p id="product-description"></p>
+            <div id="product-price" class="price" style="font-size: 1.5rem; margin-bottom: 20px;"></div>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
+        </article>
+
+        <footer class="footer">...</footer>
+    </div>
+
+</body>
+
+</html>
