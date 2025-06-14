@@ -42,6 +42,7 @@ products.forEach(product => {
 
     // --- بخش ۳: ساختن کارت نهایی ---
     const cardHTML = `
+    <a href="${product.pageLink}">
         <div class="${cardClasses}">
             <div class="card-content">
                 ${badgeHTML} <!-- کد برچسب اینجا اضافه می‌شود -->
@@ -51,6 +52,7 @@ products.forEach(product => {
                 <button>افزودن به سبد</button>
             </div>
         </div>
+        </a>
     `;
 
     productGrid.innerHTML += cardHTML;
