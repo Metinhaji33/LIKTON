@@ -1,38 +1,33 @@
-// لیست داده‌های محصولات
+// لیست داده‌های محصولات با آدرس‌های نسبی
 const products = [
     {
+        id: 1,
         name: 'موس گیمینگ RGB Pro',
         price: '۱,۲۰۰,۰۰۰ تومان',
-        imageUrl: '/images/mouse.png',
+        imageUrl: 'images/mouse.png', // اسلش از ابتدا حذف شد
         isFeatured: true,
-        // isFeatured: true,  برای بررسی حاشیه مخصوص است 
-        // true: حاشیه مخصوص داشته باشد 
         badgeText: 'تخفیف ۹۰٪',
-        id: 1
+        description: 'این یک موس عالی برای گیمرهای حرفه‌ای است.'
     },
     {
+        id: 2,
         name: 'کیبورد مکانیکال TKL',
         price: '۲,۵۰۰,۰۰۰ تومان',
-        imageUrl: '/images/keyboard.png',
-        id: 2
+        imageUrl: 'images/keyboard.png', // اسلش از ابتدا حذف شد
+        description: 'تایپ سریع و لذت‌بخش با کیبورد مکانیکال.'
     },
     {
+        id: 3,
         name: 'هدست صدای فراگیر 7.1',
         price: '۳,۱۰۰,۰۰۰ تومان',
-        imageUrl: '/images/headphone.png',
-        id: 3
+        imageUrl: 'images/headphone.png', // اسلش از ابتدا حذف شد
+        description: 'تمام جزئیات صدا را در بازی بشنوید.'
     },
     {
+        id: 4,
         name: 'مانیتور گیمینگ 144Hz',
         price: '۸,۰۰۰,۰۰۰ تومان',
-        imageUrl: '/images/monitor.png',
-        id: 4
-    },
-    // {
-    //     name: 'gg',
-    //     price: '100',
-    //     imageUrl: 'ufdb'
-    // }
-    // برای اضافه کردن محصول جدید، فقط یک بلوک مثل بالا کپی کن
-    // می توانی این لیست را تا ۱۲ محصول یا بیشتر ادامه دهی
+        imageUrl: 'images/monitor.png', // اسلش از ابتدا حذف شد
+        description: 'تصویری روان و بدون تاخیر برای بهترین تجربه بازی.'
+    }
 ];
